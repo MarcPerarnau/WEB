@@ -4,34 +4,33 @@ services:
   web:
     build: ./php
     ports:
-      - "8080:80"
+      - "8080:80"   # Expone el contenedor PHP-FPM en el puerto 8080
     volumes:
-      - ./templates:/var/www/html
+      - ./templates:/var/www/html   # Monta la carpeta de templates a la ruta web del contenedor
     depends_on:
-      - db
+      - db   # Espera a que el servicio de la base de datos esté disponible
     networks:
-      - my_network
+      - my_network   # Conexión a la red my_network
 
   nginx:
     build: ./nginx
     ports:
-      - "80:80"
+      - "80:80"   # Exposición en el puerto 80
     depends_on:
-      - web
+      - web   # Asegura que 'web' esté listo antes de arrancar Nginx
     networks:
-      - my_network
+      - my_network   # Se conecta a la red my_network
 
   db:
-    image: mysql:5.7
+    image: mysql:5.7   # Utiliza la imagen oficial de MySQL
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: my_database
+      MYSQL_ROOT_PASSWORD: rootpassword  # Contraseña del root de la base de datos
+      MYSQL_DATABASE: my_database   # Crea la base de datos automáticamente
     volumes:
-      - ./initdb/script.sql:/docker-entrypoint-initdb.d/script.sql
+      - ./initdb/script.sql:/docker-entrypoint-initdb.d/script.sql  # Ejecuta un script al iniciar la base de datos
     networks:
-      - my_network
+      - my_network   # Conexión a la red my_network
 
 networks:
   my_network:
-    driver: bridge
-
+    driver: bridge   # Red local tipo bridge

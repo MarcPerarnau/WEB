@@ -1,11 +1,6 @@
-# Usamos una imagen base de PHP con Apache
-FROM php:7.4-apache
+# ./php/Dockerfile
+FROM php:7.4-fpm
 
-# Instalamos la extensión para MySQL
-RUN docker-php-ext-install mysqli
+# Instalar extensiones necesarias (si es que las necesitas)
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Copiamos los archivos PHP al contenedor
-COPY . /var/www/html/
-
-# Exponemos el puerto 80
-EXPOSE 80

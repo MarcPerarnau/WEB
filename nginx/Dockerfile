@@ -1,5 +1,5 @@
-# Usamos la imagen oficial de Nginx
+# ./nginx/Dockerfile
 FROM nginx:alpine
 
-# Copiamos la configuración de Nginx
+# Copiar el archivo de configuración de Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
