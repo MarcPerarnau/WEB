@@ -1,5 +1,2 @@
-# ./nginx/Dockerfile
-FROM nginx:alpine
-
-# Copiar el archivo de configuración de Nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+FROM nginx:latest
+COPY nginx.conf /etc/nginx/conf.d/default.conf

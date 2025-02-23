@@ -1,6 +1,5 @@
-# ./php/Dockerfile
-FROM php:7.4-fpm
-
-# Instalar extensiones necesarias (si es que las necesitas)
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-
+FROM php:latest
+WORKDIR /var/www/html
+COPY . .
+EXPOSE 80
+CMD ["php", "-S", "0.0.0.0:80", "-t", "/var/www/html"]
