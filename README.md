@@ -85,7 +85,7 @@ git push origin mi-nueva-funcionalidad
 
 ## 📌 Autor y Contribuidores
 
-- Autor: [Marc Perarnau (DevLab)](http://github.com/MarcPerarnau)
+- Autor: [Marc Perarnau (DevLab)](http://github.com/MarcPerarnau) [Andrea Michaela Sandu](https://github.com/micaelaoly)
 - Contribuidores: Agrega tu nombre aquí cuando contribuyas 🎉
 
 ## 📜 Licencia
