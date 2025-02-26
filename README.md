@@ -1,64 +1,93 @@
-# Desplegar Docker Compose
+# 📌 Proyecto: Página Básica con Formulario y Base de Datos MySQL
 
-## Prerrequisitos
+Este repositorio contiene una página web básica con un pequeño formulario que almacena datos en una base de datos `MySQL`. La aplicación se ejecuta con `docker-compose`, utilizando `Nginx` como servidor web y `PHP` como backend.
 
-Antes de comenzar, asegúrate de tener lo siguiente instalado en tu sistema:
+## 📂 Estructura del Proyecto
+```
+.
+├── docker-compose.yaml       
+├── LICENSE                   
+├── mysql
+│   └── script.sql            
+├── nginx
+│   ├── Dockerfile            
+│   └── nginx.conf            
+├── php
+│   ├── Dockerfile            
+│   └── index.php             
+├── README.md                 
+└── REAMDE.md                 
 
-- **Docker**
+```
+## 🚀 Despliegue
 
-- **Git**
-  
-- **Acceso a Internet para clonar el repositorio desde GitHub**
+### 📋 Requisitos Previos
 
-## Pasos para desplegar la aplicación
+Asegúrate de tener instalados los siguientes programas en tu sistema: 
 
-### 1. Clonar el repositorio de GitHub
+- Docker
+- Docker Compose
 
-Ejecuta el siguiente comando para clonar el repositorio que contiene el archivo docker-compose.yml:
-```bash
+### 🔧 Instalación y Ejecución
+
+1. Clona el repositorio:
+```
 git clone https://github.com/MarcPerarnau/Web.git
+cd web
 ```
-
-### 2. Navegar al directorio del proyecto
-
-Accede a la carpeta donde se clonó el repositorio:
-```
-cd Web
-```
-### 3. Desplegar la aplicación con Docker Compose
-
-Ejecuta el siguiente comando para iniciar los contenedores definidos en el archivo docker-compose.yml:
+2. Inicia los contonedores con `docker-compose`:
 ```
 docker-compose up -d
 ```
-
-Esto iniciará la aplicación en segundo plano (-d).
-
-### 5. Verificar que los contenedores están en ejecución
-
-Para ver los contenedores en ejecución:
+3. Accede a la aplicación en tu navegador: 
 ```
-docker ps
+http://localhost:8080
 ```
-
-Si necesitas ver todos los contenedores, incluidos los detenidos:
-```
-docker ps -a
-```
-
-### 6. Acceder a la aplicación
-
-Si la aplicación es un servicio web, accede desde un navegador en http://localhost:PUERTO, ajustando el puerto según el archivo docker-compose.yml.
-
-### 7. Detener y eliminar los contenedores
-
-Para detener los contenedores:
+4. Para detener los contonedores: 
 ```
 docker-compose down
 ```
 
-Esto detendrá y eliminará los contenedores creados por Docker Compose.
+## 🛠 Configuración de Servicios
 
-Conclusión
+### 📌 Nginx
 
-Siguiendo estos pasos, cualquier usuario puede desplegar fácilmente una aplicación desde un repositorio de GitHub utilizando Docker Compose. Para más detalles, consulta la documentación oficial de Docker.
+- Configurado en `nginx/nginx.conf`
+- Servidor proxy inverso para php
+
+### 📌 PHP
+
+- Código en php/index.php
+- Procesamiento de formularios y conexión a MySQL
+
+### 📌 MySQL
+
+- Script de creación en mysql/script.sql
+- Se ejecuta automáticamente al iniciar el contenedor
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Sigue estos pasos para colaborar:
+1. Fork el repositorio
+2. Crea una nueva rama con tu funcionalidad o correción:
+```
+git checkout -b mi-nueva-funcionalidad
+```
+3. Realiza los cambios y haz un commit:
+```
+git commit -m "Añadida nueva funcionalidad"
+```
+4. Sube los cambios a tu fork:
+```
+git push origin mi-nueva-funcionalidad
+```
+5. Abre un Pull Request en este repositorio.
+
+## 📌 Autor y Contribuidores
+
+- Autor: [Marc Perarnau (DevLab)](http://github.com/MarcPerarnau)
+- Contribuidores: Agrega tu nombre aquí cuando contribuyas 🎉
+
+## 📜 Licencia
+
+Este proyecto se distribuye bajo la licencia MIT.
